@@ -31,14 +31,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void convert(View view){
-
         EditText dollarField = (EditText) findViewById(R.id.dollarField);
+        if (!dollarField.getText().toString().equals("")) {
+            Double dollarAmount = Double.parseDouble(dollarField.getText().toString());
 
-        Double dollarAmount = Double.parseDouble(dollarField.getText().toString());
+            Double poundAmount = dollarAmount * 0.65;
 
-        Double poundAmount = dollarAmount * 0.65;
-
-        Toast.makeText(getApplicationContext(), "Amount in Pounds:" + poundAmount.toString(), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Amount in Pounds: " + poundAmount.toString(), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
